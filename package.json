@@ -2,12 +2,12 @@
   "name": "cap-ver",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "capv": "node ./index.js"
+    "capv": "./index"
   },
   "author": "",
   "license": "ISC",
