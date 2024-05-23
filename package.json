@@ -1,0 +1,17 @@
+{
+  "name": "cap-ver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "capv": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "capacitor-set-version": "^2.2.0"
+  }
+}
