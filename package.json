@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "capv": "./index.js"
+    "capv": "node ./index.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,4 +1,3 @@
-// updateVersion.js
 const fs = require('fs');
 const { exec } = require('child_process')
 const packageObject = require('./package.json');
