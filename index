@@ -7,12 +7,11 @@ const path = require('path');
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageObject = require(packageJsonPath);
 
-const { run } = require("capacitor-set-version");
 const version = packageObject.version.split('.').map(num => parseInt(num));
 
 version[2] += 1;
 const newVersion = version.join('.');
-const command = `capacitor-set-version -v ${newVersion} -b 1`
+const command = `npx capacitor-set-version -v ${newVersion} -b 1`
 exec(command, (error, stdout, stderr) => {
     if (error) {
         console.error(`Unable to exec ${error}`);
