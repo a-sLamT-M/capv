@@ -5,23 +5,19 @@ const { exec } = require('child_process');
 const path = require('path');
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
+const androidGradlePath = path.join(process.cwd(), 'android/app/build.gradle')
+
 const packageObject = require(packageJsonPath);
 
 const version = packageObject.version.split('.').map(num => parseInt(num));
 
 version[2] += 1;
 const newVersion = version.join('.');
-const command = `npx capacitor-set-version -v ${newVersion} -b 1`
-exec(command, (error, stdout, stderr) => {
-    if (error) {
-        console.error(`Unable to exec ${error}`);
-        return;
-    }
-    if (stderr) {
-        console.error(`${stderr}`);
-        return;
-    }
-});
+
+const androidScript = fs.readFileSync(androidGradlePath)
+const newAndroidScript = androidScript.replace(/versionName .+"?'?$/, `version Name "${newVersion}"`);
+
+fs.writeFileSync(androidGradlePath, newAndroidScript)
 packageObject.version = newVersion;
 
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageObject, null, 2));

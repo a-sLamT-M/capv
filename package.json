@@ -10,8 +10,5 @@
     "capv": "./index"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "capacitor-set-version": "^2.2.0"
-  }
+  "license": "ISC"
 }
