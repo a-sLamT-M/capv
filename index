@@ -14,7 +14,7 @@ const version = packageObject.version.split('.').map(num => parseInt(num));
 version[2] += 1;
 const newVersion = version.join('.');
 
-const androidScript = fs.readFileSync(androidGradlePath)
+const androidScript = fs.readFileSync(androidGradlePath).toString()
 const newAndroidScript = androidScript.replace(/versionName .+"?'?$/, `version Name "${newVersion}"`);
 
 fs.writeFileSync(androidGradlePath, newAndroidScript)
