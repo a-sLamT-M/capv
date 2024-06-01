@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 const path = require('path');
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
-const androidGradlePath = path.join(process.cwd(), 'android/app/build.gradle')
+const androidGradlePath = path.join(process.cwd(), '/android/app/build.gradle')
 
 const packageObject = require(packageJsonPath);
 
@@ -15,8 +15,7 @@ version[2] += 1;
 const newVersion = version.join('.');
 
 const androidScript = fs.readFileSync(androidGradlePath).toString()
-const newAndroidScript = androidScript.replace(/versionName .+"?'?$/, `version Name "${newVersion}"`);
-
+const newAndroidScript = androidScript.replace(/versionName .+"?'?/, `versionName "${newVersion}"`);
 fs.writeFileSync(androidGradlePath, newAndroidScript)
 packageObject.version = newVersion;
 
